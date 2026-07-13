@@ -1,0 +1,26 @@
+# When to use?
+We can use git patches when we want to create a patch for specific versions of project and futhure will share this patch.
+
+- it's better then PR because you can see how your commits will look like earlier;
+- you can share your changes via email or file (target user doesn't have required permissions or two unconnected repos do not have common remote);
+- during CI/CD for generating artifacts, automatic patches sending to email/teams/chat.
+
+
+**Patch** - is a text represantation of changes between <start> and <end> commits. It includes:
+- commit metadata (author, date, commit name, etc.);
+- short and full description;
+- changed files list;
+- added and removed lines of the code.
+
+It allows:
+- Restore commit as it was originally created;
+- Move patches between different branches and repos;
+- Do Code Review easily by reading mails/files.
+
+`git format-patch <start> <end>` file contains:
+
+- `From <SHA> ...` - original commit hash
+- Author and Date
+- commit subject and commit body
+- files list and changes stat
+- `diff` with context
