@@ -17,7 +17,21 @@ type Numeric = Dog extends Animal ? number : string;
 type Stringified = RegExp extends Animal ? number : string;
 ```
 
+### Constraints types 
+Safing, validating data type.
+```typescript
+type TypeA = { id: string }
+type TypeB = { id: number }
+
+type SafeType<T extends TypeA> = T['id']
+
+type ResultType1 = SafeType<TypeA> // string
+type ResultType2 = SafeType<TypeB> // ERROR: Type 'TypeB' does not satisfy the constraint 'TypeA'.
+```
+
 ### Infeting with conditional types
+
+`Infer` key word allows us to define variable inside constraint which we can use futhure.
 
 ```typescript
 type Flatten<Type> = Type extends Array<infer Item> ? Item : Type;
