@@ -46,3 +46,25 @@ interface Person {
  
 type LazyPerson = Getters<Person>;
 ```
+
+### Practical Task
+Implement custom Deep Readonly Optional Utility Type.
+
+Solution:
+```typescript
+type Primitive = string | number | boolean | bigint | symbol | undefined | null;
+
+type MyDeepReadonlyOptional<T> = T extends Primitive
+  ? T
+  : T extends Array<infer U>
+    ? Array<MyDeepReadonlyOptional<U>>
+    : { readonly [P in keyof T]?: MyDeepReadonlyOptional<T[P]> };
+
+
+type Config = {
+    name: string;
+    age: number;
+    address?: { street: string }
+}
+type OptionalConfig = MyDeepReadonlyOptional<Config>;
+```
