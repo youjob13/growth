@@ -1,5 +1,5 @@
 # When to use?
-We can use git patches when we want to create a patch for specific versions of project and futhure will share this patch.
+We can use [git patches](https://purpleschool.ru/knowledge-base/git/specialized/patch) when we want to create a patch for specific versions of project and futhure will share this patch.
 
 - it's better then PR because you can see how your commits will look like earlier;
 - you can share your changes via email or file (target user doesn't have required permissions or two unconnected repos do not have common remote);
