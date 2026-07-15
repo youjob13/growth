@@ -1,7 +1,26 @@
-# What are git submodule?
+## What are git submodule?
 Git submodule allows us include one Git repository as sub catalog for another (parent) Git repository.
 In the parent repository git stores **link** to the specific commit in external repository. (not submodule code itself, only link to **commit**).
 It allows fix concrete code version to external repository.
+
+## Why do we need submodule?
+- when we need to split code into independent repos;
+- when we have to use reusable library in different projects;
+- strict versioning and reproducability are important.
+
+**Examples:**
+logger library, ui-kit library, infrastructure scripts
+
+## When does submodules better than versioning via package manager (NPM):
+- with npm we do not have an access to the library source code, we store version in package*.json files, with submodules we store gitlink to the specific commit to external repository, when clonning we receive submodule repo code as git tree part. We can use `git diff` to see changes, quickly switch between branches/commits of external library;
+- when we want to connect some code that couldn't be packaged with package manager (e.g. configs files, templates, scripts, docs);
+- better control over dependency via conrete **commit** not **tag/release**. NPM version is an abstraction over commits, submodule - direct link to the commit;
+- better control on CI/CD over main repo and sub modules.
+
+## When alternative approach is better than submodule:
+- we can use package manager instead (it's simpler to support and develop) and we can just specify concrete dependency version;
+- more complexity during support, CI/CD;
+- git subtree - when we want to include external repo into current repo history.
 
 ## Main artifacts
 - .gitmodules [submodule "submodule-name"]
@@ -43,15 +62,3 @@ or
 6. `cd ../..`
 7. `git add libs/logger`
 8. `git commit -m 'feat: update submodule version`
-
-## Why do we need submodule?
-- when we need to split code into independent repos;
-- when we have to use reusable library in different projects;
-- strict versioning and reproducability are important.
-
-**Examples:**
-logger library, ui-kit library, infrastructure scripts
-
-## When alternative approach is better than submodule:
-- we can use package manager instead (it's simpler to support and develop) and we can just specify concrete dependency version;
-- git subtree - when we want to include external repo into current repo history.
