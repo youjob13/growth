@@ -3,6 +3,8 @@ Git submodule allows us include one Git repository as sub catalog for another (p
 In the parent repository git stores **link** to the specific commit in external repository. (not submodule code itself, only link to **commit**).
 It allows fix concrete code version to external repository.
 
+**PROBLEMS** of we init submodule in one branch of the main repo, than switch to another branch in the main repo, submodule remains but will be uncommitted.
+
 ## Why do we need submodule?
 - when we need to split code into independent repos;
 - when we have to use reusable library in different projects;
@@ -20,7 +22,8 @@ logger library, ui-kit library, infrastructure scripts
 ## When alternative approach is better than submodule:
 - we can use package manager instead (it's simpler to support and develop) and we can just specify concrete dependency version;
 - more complexity during support, CI/CD;
-- git subtree - when we want to include external repo into current repo history.
+- git subtree - when we want to include external repo into current repo history. Difficult sync changes back;
+- monorepo.
 
 ## Main artifacts
 - .gitmodules [submodule "submodule-name"]
@@ -43,6 +46,7 @@ logger library, ui-kit library, infrastructure scripts
 `git submodule update --init --recursive` - if we have several submodules and they are recursive
 or
 `git clone --recurse-submodules https://github.com/example/app.git` - to make everything in one command
+`git pull --recurse-submodules` - to pull changes and apply new changes for submodules in one command
 
 ### Work with submodules (read):
 1. `cd libs/logger` - go to the submodule
@@ -62,3 +66,19 @@ or
 6. `cd ../..`
 7. `git add libs/logger`
 8. `git commit -m 'feat: update submodule version`
+
+`git push --recurse-submodules=check` - from the root of the main project will throw an error if you have some unpublished code in your submodules.
+
+### Delete submodule:
+1. `git rm --cached libs/logger` - delete record about submodule form main repo git index.
+2. remove info about submodule from .gitmodules
+3. `git config -f .git/config --remove-section submodule.libs/logger 2>/dev/null` - optionally clear local git config
+4. `rm -rf libs/logger` - delete submodule files
+5. `git add .gitmodules`
+6. `git commit -m 'feat: delete logger submodule'` 
+
+### Other commands:
+`git submodule` - submodules list
+`git submodule status` - submodules statuses
+`git submodule` - submodules list
+`git submodule foreach 'git stash'` - git submodules foreach allows to run specific command for all submodules
