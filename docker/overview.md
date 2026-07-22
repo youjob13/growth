@@ -27,4 +27,9 @@ Containerized Linux apps need a host with Linux kernel. (Most of the modern cont
 
 ### Docker
 
-Docker platform is a packaged collection of technologies for creating, managing and orchestrating constainers.
+Docker platform is a packaged collection of technologies for creating, managing and orchestrating containers.
+Docker platform consist of the two major parts:
+```cmd
+The CLI (client); --API calss--> The engine (server).
+```
+
