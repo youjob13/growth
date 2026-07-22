@@ -2,7 +2,7 @@
 
 To copy/update new image into Docker host.
 
-```cmd
+```sh
 docker pull nginx:latest
 ```
 
@@ -10,7 +10,7 @@ docker pull nginx:latest
 
 To see all docker images on the host.
 
-```cmd
+```sh
 docker images
 ```
 
@@ -18,7 +18,7 @@ docker images
 
 To start a new container in detached mode `-d` called `nginxcontainer`. `-p` map Docker port `80` in the container to the host port `8080`.
 
-```cmd
+```sh
 docker run --name nginxcontainer -d -p 8080:80 nginx:latest
 ```
 
@@ -26,7 +26,7 @@ docker run --name nginxcontainer -d -p 8080:80 nginx:latest
 
 To see running containers.
 
-```cmd
+```sh
 docker ps
 ```
 
