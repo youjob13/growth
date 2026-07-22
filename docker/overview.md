@@ -24,3 +24,7 @@ Or vise versa, business could buy a cheap server that couldn't run our applicati
 It's vital to understand that **containers share the kernel of the host they're running on**. 
 Containerized Windows apps need a host with Windows kernel. (You can run Linux containers on Windows system that have the WSL 2)
 Containerized Linux apps need a host with Linux kernel. (Most of the modern containers are linux containers)
+
+### Docker
+
+Docker platform is a packaged collection of technologies for creating, managing and orchestrating constainers.
