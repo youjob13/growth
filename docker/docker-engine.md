@@ -35,4 +35,5 @@ Shim allows to replace runc with other low-level runtimes.
 
 ## runc
 
-runcs one of the low-level runtime implementation of the OCI runtime-spec and expects to start containers from OCI-compliant bundles.
+runc one of the low-level runtime implementation of the OCI runtime-spec and expects to start containers from OCI-compliant bundles.
+runc is responsible for comunication with host kernel (Linux kernel) to create a process for the container, create namespaces, cgroups, mount file system.
