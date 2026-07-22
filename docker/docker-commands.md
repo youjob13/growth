@@ -14,6 +14,14 @@ To see all docker images on the host.
 docker images
 ```
 
+## docker build
+
+To build new image from Dockerfile
+
+```sh
+docker build -t test:latest .
+```
+
 ## docker run
 
 To start a new container in detached mode `-d` called `nginxcontainer`. `-p` map Docker port `80` in the container to the host port `8080`.
