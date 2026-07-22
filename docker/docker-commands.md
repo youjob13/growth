@@ -30,6 +30,12 @@ To see running containers.
 docker ps
 ```
 
+To list all containers, event in the stopped state
+
+```sh
+docker ps -a
+```
+
 ## docker exec
 
 To execute a command inside the container.
@@ -38,3 +44,20 @@ To attach shell to a new Bash process inside the container:
 ```sh
 docker exec -it nginxcontainer bash
 ```
+
+## docker stop
+
+To stop container
+
+```sh
+docker stop nginxcontainer
+```
+
+## docker rm
+
+To delete container
+
+```sh
+docker rm nginxcontainer
+```
+
