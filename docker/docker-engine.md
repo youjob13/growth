@@ -16,6 +16,16 @@ Simplified diagram focuses on the components that start and run containers:
 
 <img width="659" height="448" alt="image" src="https://github.com/user-attachments/assets/72c15493-3d15-4c72-8fa4-22b7f516202b" />
 
+## daemon
+
+The role of the daemon is to expose API.
+It accepts docker client requests and forward them to the containerd by using REST over gRPC.
+
+## containerd
+
+Containerd is a high-level runtime, that manage creating, stopping containers, images, networks.
+Via containerd Kubernetes comunicate with containers.
+
 ## shim
 
 Shim is layer between containerd and container runtime. Shim makes containerd daemonless. So if containerd breaks container runtime won't fail.
@@ -23,3 +33,6 @@ Shim is a parent process for the container.
 Shim allows container comunicate with containerd. Keep container STDIN and STDOUT streams open.
 Shim allows to replace runc with other low-level runtimes.
 
+## runc
+
+runcs one of the low-level runtime implementation of the OCI runtime-spec and expects to start containers from OCI-compliant bundles.
