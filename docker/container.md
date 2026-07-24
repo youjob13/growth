@@ -76,7 +76,10 @@ Docker supports the following 4 policies per container:
 
 | Restart Policy | Non-zero exit code | Zero exit code | docker stop | daemon restart|
 |----------------|--------------------|----------------|-------------|---------------|
-| no (default) | No | No | No | No | 
+| no (default) | No | No | No | No |
+| on-failure | Yes | No | No | Yes |
+| always | Yes | Yes | No | Yes |
+| unless-stopped | Yes | Yes | No | No |
 
 ## Docker Debug (Pro, Team, Business subscription, only for Docker Desktop)
 
