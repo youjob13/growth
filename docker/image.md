@@ -49,6 +49,20 @@ To get an image digest before pulling it, use:
 
 - Images digests are a crypto hash of the image's manifest file (Dockerfile). Each layer gets two hashes:
   1) Content hash (uncompressed)
-  2) Distribution hash (compressed)
+  2) Distribution hash (compressed) - uses when push/pull to verify no tampering occured.
 - Layer digests are a crypto hash of the layer's contents.
 
+## Multi-architecture images
+
+Registry API supports two constructs:
+- Manifest lists is a list of architectures supported by an image tag;
+- Manifests - lists the layers used to build it.
+
+<img width="641" height="661" alt="image" src="https://github.com/user-attachments/assets/bb028b5f-2df3-4a3c-99b4-c35d4f766e54" />
+
+<img width="446" height="392" alt="image" src="https://github.com/user-attachments/assets/846d4b5a-3fe7-4444-a7e2-3e40f9cb5401" />
+
+
+Use `docker buildx` command to create multi-architecture images. This command offers two ways to create multi-architecture images:
+- Emulation - performs builds for different architectures on local machine by running the build inside a QEMU VM emulating the target architecture;
+- Build Cloud - cloud service by Docker Inc., performs build in the cloud on native hardware.
