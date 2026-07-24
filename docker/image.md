@@ -72,3 +72,19 @@ Registry API supports two constructs:
 Use `docker buildx` command to create multi-architecture images. This command offers two ways to create multi-architecture images:
 - Emulation - performs builds for different architectures on local machine by running the build inside a QEMU VM emulating the target architecture;
 - Build Cloud - cloud service by Docker Inc., performs build in the cloud on native hardware.
+
+## Remove Image
+
+```sh
+docker rmi image-name
+```
+
+You can force the operation with the `-f` flag, but forcing Docker to delete an image in use by a container will untag the image and leave it on the system as a **dangling image**.
+```sh
+docker rmi image-name -f
+```
+
+To delete all local images:
+```sh
+ docker rmi $(docker images -q) -f
+```
