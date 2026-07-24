@@ -24,7 +24,9 @@ Layers can be shared between different images.
 
 
 To inspect layer information:
-`docker inspect node:latest`
+```sh
+docker inspect node:latest
+```
 
 <img width="343" height="228" alt="image" src="https://github.com/user-attachments/assets/30fdbb67-8af5-4e59-b46f-e0381f8e0237" />
 
@@ -44,8 +46,12 @@ Docker uses a **content addresable storage** model where every image gets a cryp
 - It's also impossible to change an image without creating a new digest.
 
 To get an image digest before pulling it, use:
-1) `docker buildx imagetools inspect node:latest`
-2) `docker pull node:latest@<sha256:digestcode>`
+1) ```sh
+   docker buildx imagetools inspect node:latest
+   ```
+2) ```sh
+   docker pull node:latest@<sha256:digestcode>
+   ```
 
 - Images digests are a crypto hash of the image's manifest file (Dockerfile). Each layer gets two hashes:
   1) Content hash (uncompressed)
