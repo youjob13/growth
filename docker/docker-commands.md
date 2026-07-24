@@ -69,3 +69,19 @@ To delete container
 docker rm nginxcontainer
 ```
 
+## docker rmi
+
+To delete image
+
+```sh
+docker rmi nginxcontainer
+```
+
+## docker buildx
+
+To build images (with multi-architecture as well)
+
+```sh
+docker buildx 
+```
+
