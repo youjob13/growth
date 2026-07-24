@@ -53,9 +53,17 @@ To attach shell to a new Bash process inside the container:
 docker exec -it nginxcontainer bash
 ```
 
+## docker attach
+
+To automatically attach the container main process.
+
+```sh
+docker attach nginxcontainer
+```
+
 ## docker stop
 
-To stop container
+To stop container. It send a *SIGTERM* to the container PID 1 process and allows the container 10 seconds to gracefully quit. If the process hasn't cleaned up and stopped within 10 seconds, it sends a *SIGKILL* to force the container to terminate immediately.
 
 ```sh
 docker stop nginxcontainer
