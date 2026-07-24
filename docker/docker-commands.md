@@ -69,6 +69,14 @@ To stop container. It send a *SIGTERM* to the container PID 1 process and allows
 docker stop nginxcontainer
 ```
 
+## docker restart
+
+To restart a stopped container
+
+```sh
+docker restart nginxcontainer
+```
+
 ## docker rm
 
 To delete container
