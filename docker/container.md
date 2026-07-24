@@ -49,3 +49,42 @@ Benefits:
 
 `Cmd` are overriden by CLI arguments.
 
+## Connecting to a running container
+
+Use the next command to execute commands in running containers:
+
+```sh
+docker exec -it container-name sh
+```
+
+To automatically connects to a container main process.
+```sh
+docker attach
+```
+
+Containers only run while their main process is executing. Kill the main process === kill the container.
+
+## Container Restart Policies
+
+Container *restart policies* are a simple form of **self-healing** that allows the local Docker Engine to automatically restart failed containers.
+
+Docker supports the following 4 policies per container:
+- no (default)
+- on-failure
+- always
+- unless-stopped
+
+| Restart Policy | Non-zero exit code | Zero exit code | docker stop | daemon restart|
+--------------------------------------------------------------------------------------
+| no (default) | No | No | No | No | 
+
+## Docker Debug (Pro, Team, Business subscription, only for Docker Desktop)
+
+Docker Debug allows to get shell session to the container and run commands that aren't installed in the container.
+
+1) ```sh
+   docker login
+   ```
+2) ```sh
+   docker debug <image|container>
+   ```
