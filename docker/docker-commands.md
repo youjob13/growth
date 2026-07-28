@@ -101,3 +101,51 @@ To build images (with multi-architecture as well)
 docker buildx 
 ```
 
+## docker network ls
+
+To list docker networks
+
+```sh
+docker network ls
+```
+
+## docker volume ls
+
+To list docker volumes
+
+```sh
+docker volume ls
+```
+
+## docker compose ls
+
+To list docker apps running with compose
+
+```sh
+docker compose ls
+```
+
+## docker compose top
+
+To run a docker compose top to list the processes inside each
+container
+
+```sh
+docker compose top
+```
+
+## docker compose stop
+
+To stop running containers in compose
+
+```sh
+docker compose stop
+```
+
+## docker compose down
+
+To remove running containers in compose
+
+```sh
+docker compose down
+```
