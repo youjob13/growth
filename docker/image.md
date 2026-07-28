@@ -30,6 +30,11 @@ docker inspect node:latest
 
 <img width="343" height="228" alt="image" src="https://github.com/user-attachments/assets/30fdbb67-8af5-4e59-b46f-e0381f8e0237" />
 
+Some of the Dockerfile instructions create dedicated layers for image. This approach helps to reuse already builded layers and speed up image building process.
+
+<img width="566" height="261" alt="image" src="https://github.com/user-attachments/assets/d301730b-5df1-4406-b13a-917be326d3f5" />
+
+
 ## Where to store images?
 
 In registries that implement OCI distribution-spec. (Docker Hub)
