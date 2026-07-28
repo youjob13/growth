@@ -37,6 +37,7 @@ e.g.:
 <img width="470" height="241" alt="image" src="https://github.com/user-attachments/assets/ff97ac1b-65fd-4c82-a30c-cb209ed0653b" />
 
 Example on go:
+
 <img width="607" height="396" alt="image" src="https://github.com/user-attachments/assets/3a9c74bb-15e5-49de-92b9-7b0e7b401403" />
 
 ## Docker's Build system
