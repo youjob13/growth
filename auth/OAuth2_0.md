@@ -23,7 +23,7 @@ curl -X GET https://api.example.com/profile -H "Authorization: Bearer ACCESS_TOK
 2. Application redirect to *Authorization Server*
 3. User enter login and password
 4. User approves *scopes*
-5. Authorization server gives temporary *authorization code* and invokes *redirect callback*
+5. Authorization server gives temporary *authorization code* and navigates to the *redirect uri*
 6. Client *exchange authorization code to access token* via Authorization Server
 7. Authorization server returns *access and refresh tokens*
 8. Application sends access token to *Resource Server API* (via cookies or Authorization header)
@@ -72,3 +72,14 @@ Scope is an access limitation that defines which actions allowed for application
 | profile | Profile access |
 | read_orders | Read orders access |
 | write_posts | Creating posts |
+
+## Securing
+
+| Risk | Protection mechanism |
+|------|----------------------|
+| *Access token* has been stolen | Short access token lifetime |
+| *Authorization code* has been intercepted | PKCE |
+| XSS-attacks | Never store tokens in localStorage (instead stores in-memory or in httpOnly cookie) |
+| *redirect_uri* substitution | Strict URI validation (===) |
+| Missing *state* validation (CSRF-attacks) | Always validate *state*
+| Fishing | MFA and trusted domains |
