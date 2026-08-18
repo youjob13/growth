@@ -4,6 +4,10 @@ OAuth 2.0 is an open source **authorization** protocol which allows user (client
 
 ```md
 e.g. login to site via social media account
+e.g. REST API. Client attaches access token to HTTP Authorization header, Resource server validates token and returns data
+```
+```sh
+curl -X GET https://api.example.com/profile -H "Authorization: Bearer ACCESS_TOKEN"
 ```
 
 ## Roles
@@ -37,14 +41,34 @@ e.g. login to site via social media account
 | Implicit Flow | Old SPA | Deprecated. Unsafe. Never use |
 | Password Grant | Legacy systems | Not recommended. User shares password directly to client |
 
-### Authorization Code Flow (usually for web-application with server side)
+### Authorization Code Flow
 
 e.g. Google OAuth, GitHub OAuth, banking integrations
 
 OAuth tokens:
+
+Usually OAuth tokens is a JWT tokens.
 
 | Token | Purpose | Lifetime | Risks |
 |-------|---------|----------|-------|
 | Access token | Access to API (via header Authorization: Bearer ACCESS_TOKEN) | minutes / hours | When access token is stolen attackers may send request until token will be expired |
 | Refresh token | Get new access token | days / months | When refresh token is stolen attackers may get new access tokens long time |
 
+```sh
+curl -X POST https://auth.example.com/token \
+-d "grant_type=authorization_code" \
+-d "client_id=CLIENT_ID" \
+-d "client_secret=CLIENT_SECRET" \
+-d "code=AUTH_CODE"
+```
+
+## Scopes
+
+Scope is an access limitation that defines which actions allowed for application
+
+| Scope | Permission |
+|-------|------------|
+| email | Read user email |
+| profile | Profile access |
+| read_orders | Read orders access |
+| write_posts | Creating posts |
