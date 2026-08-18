@@ -26,3 +26,16 @@ e.g. login to site via social media account
 9. Resource Server validates access token and returns data
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/c795278a-ff29-4318-ac45-20e59d7a40de" />
+
+## Authorization Flows
+
+### Authorization Code Flow
+
+e.g. Google OAuth, GitHub OAuth, banking integrations
+
+OAuth tokens:
+
+| Token | Purpose | Lifetime | Risks |
+|-------|---------|----------|-------|
+| Access token | Access to API | minutes / hours | When access token is stolen attackers may send request until token will be expired |
+| Refresh token | Get new access token | days / months | When refresh token is stolen attackers may get new access tokens long time |
