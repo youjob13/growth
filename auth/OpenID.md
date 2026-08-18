@@ -5,7 +5,7 @@ It allows to assert user identity without registering on each service.
 
 *Identity Layer* is used on top of base protocol (e.g. OAuth 2.0)
 
-| An *Identity Layer* provides:    |
+| An *Identity Layer* provides:  |  |
 | -----------------------------|----------|
 | Who | is the user that got authenticated |
 | Where | was he authenticated |
