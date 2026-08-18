@@ -35,11 +35,11 @@ curl -X GET https://api.example.com/profile -H "Authorization: Bearer ACCESS_TOK
 
 | Grant Type | When to use | Recommendation |
 |------------|-------------|----------------|
-| Authorization Code Flow | Web applications with server side | Main safe option. Use *authorization code* + *client_secret* |
-| Authorization Code + PKCE | SPA and mobile applications | Recommended for *public clients*. Protect from authorization code to be stolen |
-| Client Credentials | Service-to-service (without user) | For backend integrations |
-| Implicit Flow | Old SPA | Deprecated. Unsafe. Never use |
-| Password Grant | Legacy systems | Not recommended. User shares password directly to client |
+| Authorization Code Flow | Web applications with server side | ✅ Main safe option. Use *authorization code* + *client_secret* |
+| Authorization Code + PKCE | SPA and mobile applications | ✅ Recommended for *public clients*. Protect from authorization code to be stolen |
+| Client Credentials | Service-to-service (without user) | ✅ For backend integrations |
+| Implicit Flow | Old SPA | ❌ Deprecated. Unsafe. Never use |
+| Password Grant | Legacy systems | ❌ Not recommended. User shares password directly to client |
 
 ### Authorization Code Flow
 
