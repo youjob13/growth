@@ -27,9 +27,17 @@ e.g. login to site via social media account
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/c795278a-ff29-4318-ac45-20e59d7a40de" />
 
-## Authorization Flows
+## Grant Types
 
-### Authorization Code Flow
+| Grant Type | When to use | Recommendation |
+|------------|-------------|----------------|
+| Authorization Code Flow | Web applications with server side | Main safe option. Use *authorization code* + *client_secret* |
+| Authorization Code + PKCE | SPA and mobile applications | Recommended for *public clients*. Protect from authorization code to be stolen |
+| Client Credentials | Service-to-service (without user) | For backend integrations |
+| Implicit Flow | Old SPA | Deprecated. Unsafe. Never use |
+| Password Grant | Legacy systems | Not recommended. User shares password directly to client |
+
+### Authorization Code Flow (usually for web-application with server side)
 
 e.g. Google OAuth, GitHub OAuth, banking integrations
 
@@ -37,5 +45,6 @@ OAuth tokens:
 
 | Token | Purpose | Lifetime | Risks |
 |-------|---------|----------|-------|
-| Access token | Access to API | minutes / hours | When access token is stolen attackers may send request until token will be expired |
+| Access token | Access to API (via header Authorization: Bearer ACCESS_TOKEN) | minutes / hours | When access token is stolen attackers may send request until token will be expired |
 | Refresh token | Get new access token | days / months | When refresh token is stolen attackers may get new access tokens long time |
+
