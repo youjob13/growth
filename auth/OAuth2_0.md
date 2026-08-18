@@ -2,6 +2,8 @@
 
 OAuth 2.0 is an open source **authorization** protocol which allows user (client) get limited access to his data on another service without sharing his login and password (via access and refresh tokens).
 
+<img width="1201" height="697" alt="image" src="https://github.com/user-attachments/assets/0512bb65-d3c7-47c2-87dd-562baf343623" />
+
 ```md
 e.g. login to site via social media account
 e.g. REST API. Client attaches access token to HTTP Authorization header, Resource server validates token and returns data
