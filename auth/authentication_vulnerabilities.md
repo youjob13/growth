@@ -10,3 +10,5 @@
 | Persistent Token Theft | Is a risk when tokens are stored within the browser's storage, making them susceptible to continuous theft by malicious scripts | Do not store tokens in browser storages |
 | Acquisition and Extraction of New Tokens | Occurs when a session is active on the OpenID Provider side and malicious JavaScript initiates a silent authentication process in a hidden iframe to obtain new access tokens without the user's knowledge | |
 | Proxying Requests via the User's Browser | Occurs when malicious JavaScript exploits an authenticated session by simulating user actions within the app, sending unauthorized requests to the Protected Resource on behalf of the user. | |
+| Token Transmission via URL | Occurs when tokens are visible in the address bar, stored in browser history, logs and passed via HTTP referrers, making them vulnerable to interception and unauthorized use (Implicit Flow) | Use Authorization Code Flow instead | 
+| Lack of Refresh Token Support | Occurs when there are no refresh tokens, frequent requests for new tokens are necessary, increasing the chances of token leakage and misuse. | Use Authorization Code Flow instead |
