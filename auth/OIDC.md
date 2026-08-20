@@ -39,6 +39,16 @@ This is recommended browser-based protocol.
 | Confidential client | Are required to provide a *client secret* when they exchange the temporary authorization code for tokens |
 | Public client | Are not required to provide this client secret. There is no way to safely store client secret for public clients. Public client must use PKCE |
 
+#### PKCE (Proof Key for Code Exchange)
+
+PKCE is designed to prevent authorization code interception and injection attacks. (HELPS OpenID Provider to identify Client) It ensures that only the client that requested the authorization code can use it. PKCE allows public clients (mobile and SPA) to use the Authorization Code Flow securely.
+
+Request with PKCE must contain *code_challenge* and *code_challenge_method*.
+
+1. Before making the request, the client generates a high-entropy cryptographic random string known as the *code_verifier*. 
+2. The *code_challenge* is then derived by hashing the *code_verifier* using the specified *code_challenge_method*.
+3. *code_challnge* is sent with the initial authorization request, ensuring that the *code_verifier* is used later to prove that the true originator of the authorization request is asking for a token in exchange for the authorization code.
+
 ### Implicit Flow
 
 This is browser-based protocol (not recommended, less secure)
