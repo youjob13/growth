@@ -36,7 +36,7 @@ This is recommended browser-based protocol.
 
 | Client type | Description |
 |-------------|-------------|
-| Confidential client | Are required to provide a *client secret* when they exchange the temporary authorization code for tokens |
+| Confidential client | Are required to provide a *client secret* when they exchange the temporary authorization code for tokens. Confidential client still may use PKCE for additional security |
 | Public client | Are not required to provide this client secret. There is no way to safely store client secret for public clients. Public client must use PKCE |
 
 #### PKCE (Proof Key for Code Exchange)
