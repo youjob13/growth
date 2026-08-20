@@ -24,3 +24,38 @@ OIDC verify if user is the right user (not impersonated user)
 
 ## OIDC Auth Flows
 
+### Authorization Code Flow
+
+This is recommended browser-based protocol.
+
+1. Browser visits app. The app redirects (with redirect URL query parameter) to the Keycloak to be authenticated.
+2. Keycloak authenticates the user and create one-time very short lived temporary **authorization code**. Keycloak redirects back to the app using the provided redirect URL and additionally adds the temporary code as query parameter.
+3. The app extracts the temporary code and makes a background out of band REST invocation to Keycloak to exchange the authorization code for an *identity*, *access* and *refersh* tokens.
+
+**NOTE**: Authorization Code Flow can be used with both a *confidential* and a *public* clients
+
+| Client type | Description |
+|-------------|-------------|
+| Confidential client | Are required to provide a *client secret* when they exchange the temporary authorization code for tokens |
+| Public client | Are not required to provide this client secret. There is no way to safely store client secret for public clients. Public client must use PKCE |
+
+### Implicit Flow
+
+This is browser-based protocol (not recommended, less secure)
+
+1. Browser visits app. The app redirects (with redirect URL query parameter) to the Keycloak to be authenticated.
+2. Keycloak authenticates the user and creates *identity* and *access* tokens. Keycloak redirects back to the app using the provided redirect URL and additionally adds the *identity* and *access* tokens as query parameters.
+3. The app extracts the *identity* and *access* tokens from the URL.
+
+### Resource Owner Password Credentials Grant (Direct Access Grants)
+
+This is used by REST clients that want to obtain a token on behalf of a user.
+
+1. It's one **HTTP POST** request that contains the credentials of the user as well as the id of the client and the client's secret (if it's a confidential client).
+2. The HTTP response contains *identity*, *access* and *refresh* tokens.
+
+### Client Credentials Grant
+
+This is used by REST clients.
+
+The main difference from the Direct Access Grant is that token is created based on the metadata and permissions of a *service account* that is associated with the client (not on behalf of a user).
