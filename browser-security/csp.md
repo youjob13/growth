@@ -45,3 +45,10 @@ Are used to specify a particular category of resource that a document is allowed
 | 'unsafe-inline' | by default, if a CSP contains a *default-src* or a *script-src* directive then inline JavaScript is not allowed to execute (<script>, inline event handlers attributes, javascript: URLs) |
 | 'nonce-<base64>' | resource can be loaded if value from CSP directive match the value in the element attribute (only applicable to <script> and <style> elements) |
 
+## Requiring trusted types
+
+**require-trusted-types-for** and **trusted-types** directives enable to defend against XSS attacks, by ensuring that any input has been passed through a transformation to make it safe before it is passed to a web platform API that might otherwise execute it as code.
+
+Sources:
+https://speakerdeck.com/lweichselbaum/csp-is-dead-long-live-strict-csp-deepsec-2016?slide=36
+https://csp-evaluator.withgoogle.com/
