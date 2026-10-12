@@ -25,3 +25,8 @@
 - Canvas для создания высокодинамического контента (полный контроль над всем, что отрисовывается / частотой кадров)
 - Использовать CSS-анимации (e.g. [CSS Transitions](https://developer.mozilla.org/ru/docs/Web/CSS/Guides/Transitions/Using)), transform - для изменения позиции, масштаба  - часть вычислений переносится на GPU
 - Использовать RAF (Request Animation Frame) вместо setInterval / setTimeout
+
+## Способы оптимизации
+- Выносить код в web-workers
+- Разбивать всё что должно быть выполнено в основном потоке на мелкие куски кода
+- Lazy loading
